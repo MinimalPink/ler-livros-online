@@ -33,52 +33,5 @@
             } );
         </script>
         
-        <script>
- function initAd(){
-    if ( window.plugins && window.plugins.AdMob ) {
-        var ad_units = {
-            android : {
-                    banner: 'ca-app-pub-3312159925240433/2907753501',       //PUT ADMOB ADCODE HERE
-                    interstitial: 'ca-app-pub-3312159925240433/5222091500'  //PUT ADMOB ADCODE HERE
-            }
-        };
-        var admobid = ( /(android)/i.test(navigator.userAgent) ) ? ad_units.android : ad_units.ios;
-        window.plugins.AdMob.setOptions( {
-            publisherId: admobid.banner,
-            interstitialAdId: admobid.interstitial,
-            bannerAtTop: true, // set to true, to put banner at top
-            overlap: false, // set to true, to allow banner overlap webview
-            offsetTopBar: false, // set to true to avoid ios7 status bar overlap
-            isTesting: true, // receiving test ad
-            autoShow: true // auto show interstitial ad when loaded
-        });
-    } else {
-        //alert( 'admob plugin not ready' );
-    }
-}
-function registerAdEvents() {
-    document.addEventListener('onReceiveAd', function(){});
-    document.addEventListener('onFailedToReceiveAd', function(data){});
-    document.addEventListener('onPresentAd', function(){});
-    document.addEventListener('onDismissAd', function(){ });
-    document.addEventListener('onLeaveToAd', function(){ });
-    document.addEventListener('onReceiveInterstitialAd', function(){ });
-    document.addEventListener('onPresentInterstitialAd', function(){ });
-    document.addEventListener('onDismissInterstitialAd', function(){ });
-}
-function showAdsFunc(){
-    //alert("show ads");
-    if ( window.plugins && window.plugins.AdMob )
-    	window.plugins.AdMob.createBannerView();
-}
-function showInterstitialFunc(){
-    //alert("interstitial");
-    if ( window.plugins && window.plugins.AdMob )
-    	window.plugins.AdMob.createInterstitialView();      
-}
-initAd();
-showAdsFunc();
-showInterstitialFunc();
-</script>
     </body>
 </html>
